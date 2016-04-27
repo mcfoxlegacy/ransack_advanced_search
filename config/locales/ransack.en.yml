@@ -3,6 +3,8 @@ en:
     advanced_search:
       form:
         submit_text: Search
+        save_submit_text: Save and Search
+        save_new_submit_text: Save as new and Search
       sort:
         title: Sort
         label_title: Sort by
@@ -16,6 +18,12 @@ en:
         add: Add Condition
       attribute_value:
         add: Add Value
+    saved_search:
+      title: Saved Searches
+      empty_list: There are no saved searches in this context.
+      save:
+        success: Search saved successfully.
+        error: Error while saving the search. You must enter a description of the search and at least one filter.
     search: "search"
     predicate: "predicate"
     and: "and"

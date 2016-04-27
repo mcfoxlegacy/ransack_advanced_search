@@ -1,31 +1,64 @@
 <div class="ransack-advanced-search">
-  <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-vertical', role: 'form'  }) do |f| %>
 
-    <% setup_search_form f %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><%= translate('ransack.saved_search.title') %></div>
+        <div class="list-group lista-buscas">
+          <% @saved_searches.each do |saved_search| %>
+            <%= link_to url_for(saved_search: saved_search.id), method: :post, class: 'list-group-item' do %>
+              <%= saved_search.description %>
+            <% end %>
+          <% end %>
+          <% if @saved_searches.empty? %>
+            <%= link_to '#', class: 'list-group-item' do %>
+              <em><%= translate('ransack.saved_search.empty_list') %></em>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-vertical', role: 'form'  }) do |f| %>
 
-    <h4><%= translate('ransack.advanced_search.sort.title') %></h4>
-    <div class="form-group">
-      <%= f.sort_fields do |s| %>
-        <%= render 'ransack_advanced_search/sort_fields', f: s %>
+        <% setup_search_form f %>
+
+        <div class="form-group">
+          <%= label_tag 'Descrição da Busca (necessária para salvar a busca)' %>
+          <%= text_field_tag :description, @saved_search.try(:description), class: 'form-control input-sm' %>
+          <% if @saved_search %>
+            <%= hidden_field_tag :saved_search, @saved_search.id %>
+            <%= hidden_field_tag :use_search_params, true %>
+          <% end %>
+        </div>
+
+        <h4><%= translate('ransack.advanced_search.sort.title') %></h4>
+        <div class="form-group">
+          <%= f.sort_fields do |s| %>
+            <%= render 'ransack_advanced_search/sort_fields', f: s %>
+          <% end %>
+          <%= button_to_add_fields translate('ransack.advanced_search.sort.add'), f, :sort %>
+        </div>
+
+        <h4><%= translate('ransack.advanced_search.condition_group.title') %></h4>
+        <div class="form-group">
+          <%= f.grouping_fields do |g| %>
+            <%= render 'ransack_advanced_search/grouping_fields', f: g %>
+          <% end %>
+          <%= button_to_add_fields translate('ransack.advanced_search.condition_group.add'),
+              f, :grouping %>
+        </div>
+
+        <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->
+        <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
+        <div class="form-group">
+          <%= f.submit translate('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
+          <%= f.submit translate('ransack.advanced_search.form.save_submit_text'), name: 'save_search', class: 'btn btn-primary' %>
+          <%= f.submit translate('ransack.advanced_search.form.save_new_submit_text'), name: 'save_new_search', class: 'btn btn-primary' %>
+        </div>
       <% end %>
-      <%= button_to_add_fields translate('ransack.advanced_search.sort.add'), f, :sort %>
     </div>
-
-    <h4><%= translate('ransack.advanced_search.condition_group.title') %></h4>
-    <div class="form-group">
-      <%= f.grouping_fields do |g| %>
-        <%= render 'ransack_advanced_search/grouping_fields', f: g %>
-      <% end %>
-      <%= button_to_add_fields translate('ransack.advanced_search.condition_group.add'),
-          f, :grouping %>
-    </div>
-
-    <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->
-    <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
-    <div class="form-group">
-      <%= f.submit translate('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+  </div>
 </div>
 
 <% content_for(:ransack_advanced_search_setup) do %>

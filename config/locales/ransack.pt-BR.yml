@@ -3,6 +3,8 @@ pt-BR:
     advanced_search:
       form:
         submit_text: Pesquisar
+        save_submit_text: Salvar e Pesquisar
+        save_new_submit_text: Salvar nova e Pesquisar
       sort:
         title: Ordenação
         add: Adicionar ordenação
@@ -15,6 +17,12 @@ pt-BR:
         add: Adicionar filtro
       attribute_value:
         add: Adicionar valor
+    saved_search:
+      title: Buscas Salvas
+      empty_list: Não existem buscas salvas para este contexto.
+      save:
+        success: Busca salva com sucesso.
+        error: Erro ao salvar a busca. Você precisa informar a descrição da busca e pelo menos um filtro.
     search: "pesquisar"
     predicate: "predicado"
     and: "e"
