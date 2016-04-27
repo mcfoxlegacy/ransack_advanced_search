@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    ransack_advanced_search (0.0.1)
+    ransack_advanced_search (0.1.0)
       coffee-rails
       rails (>= 3.2.6, < 5)
-      ransack (~> 1.7.0)
+      ransack (>= 1.7.0)
 
 GEM
   remote: https://rubygems.org/

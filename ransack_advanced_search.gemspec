@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'rails', ['>= 3.2.6','< 5']
-  s.add_dependency 'ransack', '~> 1.7.0'
-  s.add_dependency 'coffee-rails'
+  s.add_dependency 'ransack', '~> 1.7.0', '>= 1.7.0'
+  s.add_dependency 'coffee-rails', '~> 3.2'
 
-  s.add_development_dependency 'pry'
+  s.add_development_dependency 'pry', '~>0.10'
 end
