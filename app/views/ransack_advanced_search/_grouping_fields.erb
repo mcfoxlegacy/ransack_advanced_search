@@ -2,7 +2,7 @@
   'data-object-name' => f.object_name } do %>
 
   <%= content_tag(:legend, "Match #{f.combinator_select} conditions #{
-    button_to_remove_fields 'remove', f}", nil, false) %>
+    button_to_remove_fields}", nil, false) %>
 
   <%= f.condition_fields do |c| %>
     <%= render 'ransack_advanced_search/condition_fields', f: c %>

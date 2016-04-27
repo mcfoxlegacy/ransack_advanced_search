@@ -10,7 +10,7 @@ module RansackAdvancedSearchHelper
         search.add_fields(this, $(this).data('fieldType'), $(this).data('content'));
         return false;
       });
-      $(document).on("click", "button.remove_fields", function() {
+      $(document).on("click", "i.remove_fields", function() {
         search.remove_fields(this);
         return false;
       });
@@ -21,8 +21,8 @@ module RansackAdvancedSearchHelper
     }.html_safe
   end
 
-  def button_to_remove_fields(name, f)
-    content_tag :button, name, class: 'remove_fields'
+  def button_to_remove_fields
+    content_tag :i, nil, class: 'remove_fields glyphicon glyphicon-remove text-danger'
   end
 
   def button_to_add_fields(name, f, type)

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+.ransack-advanced-search i.remove_fields {
+  cursor: pointer;
+ }

@@ -1,8 +1,8 @@
-<%= content_tag :fieldset, {
+<%= content_tag :div, {
   class: 'fields condition', 'data-object-name' => f.object_name
   } do %>
 
-  <%= content_tag(:legend, button_to_remove_fields('remove', f),
+  <%= content_tag(:span, button_to_remove_fields,
     nil, false) %>
 
   <%= f.attribute_fields do |a| %>
