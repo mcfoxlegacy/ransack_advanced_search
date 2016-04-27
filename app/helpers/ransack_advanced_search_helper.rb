@@ -36,8 +36,4 @@ module RansackAdvancedSearchHelper
   def button_to_nest_fields(name, type)
     content_tag :button, name, :class => 'nest_fields', 'data-field-type' => type
   end
-
-  def translate(key)
-    t(key, :default => t(key, :locale => :en))
-  end
 end

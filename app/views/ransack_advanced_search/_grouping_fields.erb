@@ -2,15 +2,15 @@
   'data-object-name' => f.object_name } do %>
 
 
-  <%= content_tag(:span, "#{translate('ransack.advanced_search.condition_group.match')}
-    #{f.combinator_select} #{translate('ransack.advanced_search.condition_group.match_condition')}
+  <%= content_tag(:span, "#{t('ransack.advanced_search.condition_group.match')}
+    #{f.combinator_select} #{t('ransack.advanced_search.condition_group.match_condition')}
     #{button_to_remove_fields}", nil, false) %>
 
   <%= f.condition_fields do |c| %>
     <%= render 'ransack_advanced_search/condition_fields', f: c %>
   <% end %>
 
-  <%= button_to_add_fields translate('ransack.advanced_search.attribute_field.add'),
+  <%= button_to_add_fields t('ransack.advanced_search.attribute_field.add'),
       f, :condition %>
 
   <%= f.grouping_fields do |g| %>

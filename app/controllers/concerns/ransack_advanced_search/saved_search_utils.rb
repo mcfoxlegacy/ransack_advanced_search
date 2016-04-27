@@ -35,9 +35,9 @@ module RansackAdvancedSearch
         end
 
         if @saved_search.save
-          flash[:notice] = translate('ransack.saved_search.save.success')
+          flash[:notice] = t('ransack.saved_search.save.success')
         else
-          flash[:error] = translate('ransack.saved_search.save.error')
+          flash[:error] = t('ransack.saved_search.save.error')
         end
       end
     end
