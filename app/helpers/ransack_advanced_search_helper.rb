@@ -30,7 +30,7 @@ module RansackAdvancedSearchHelper
     fields = f.send("#{type}_fields", new_object, child_index: "new_#{type}") do |builder|
       render('ransack_advanced_search/' + type.to_s + "_fields", f: builder)
     end
-    content_tag :button, name, :class => 'add_fields btn btn-default', :type => 'button', 'data-field-type' => type, 'data-content' => "#{fields}"
+    content_tag :button, name, :class => 'add_fields btn btn-default btn-sm', :type => 'button', 'data-field-type' => type, 'data-content' => "#{fields}"
   end
 
   def button_to_nest_fields(name, type)

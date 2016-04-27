@@ -9,6 +9,8 @@ pt-BR:
       condition_group:
         title: Grupos de filtros
         add: Adicionar grupo
+        match: Filtrar
+        match_condition: condições
       attribute_field:
         add: Adicionar filtro
       attribute_value:

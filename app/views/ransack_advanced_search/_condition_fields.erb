@@ -9,7 +9,7 @@
     <%= render 'ransack_advanced_search/attribute_fields', f: a %>
   <% end %>
 
-  <%= f.predicate_select %>
+  <%= f.predicate_select({}, {class: 'form-control input-sm'}) %>
 
   <%= f.value_fields do |v| %>
     <%= render 'ransack_advanced_search/value_fields', f: v %>

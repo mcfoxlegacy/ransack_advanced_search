@@ -1,8 +1,10 @@
-<%= content_tag :fieldset, { class: 'fields',
+<%= content_tag :div, { class: 'fields',
   'data-object-name' => f.object_name } do %>
 
-  <%= content_tag(:legend, "Match #{f.combinator_select} conditions #{
-    button_to_remove_fields}", nil, false) %>
+
+  <%= content_tag(:span, "#{translate('ransack.advanced_search.condition_group.match')}
+    #{f.combinator_select} #{translate('ransack.advanced_search.condition_group.match_condition')}
+    #{button_to_remove_fields}", nil, false) %>
 
   <%= f.condition_fields do |c| %>
     <%= render 'ransack_advanced_search/condition_fields', f: c %>
@@ -14,7 +16,5 @@
   <%= f.grouping_fields do |g| %>
     <%= render 'ransack_advanced_search/grouping_fields', f: g %>
   <% end %>
-
-  <%= button_to_nest_fields translate('ransack.advanced_search.condition_group.add'), :grouping %>
 
 <% end %>

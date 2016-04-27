@@ -10,6 +10,8 @@ en:
       condition_group:
         title: Condition Groups
         add: Add Condition Group
+        match: Match
+        match_condition: conditions
       attribute_field:
         add: Add Condition
       attribute_value:
