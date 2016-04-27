@@ -8,12 +8,13 @@
     <%= render 'ransack_advanced_search/condition_fields', f: c %>
   <% end %>
 
-  <%= button_to_add_fields 'Add Condition', f, :condition %>
+  <%= button_to_add_fields translate('ransack.advanced_search.attribute_field.add'),
+      f, :condition %>
 
   <%= f.grouping_fields do |g| %>
     <%= render 'ransack_advanced_search/grouping_fields', f: g %>
   <% end %>
 
-  <%= button_to_nest_fields 'Add Condition Group', :grouping %>
+  <%= button_to_nest_fields translate('ransack.advanced_search.condition_group.add'), :grouping %>
 
 <% end %>
