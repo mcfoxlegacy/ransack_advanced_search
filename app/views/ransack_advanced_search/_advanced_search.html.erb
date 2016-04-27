@@ -1,34 +1,29 @@
-<div class="row ransack-advanced-search">
-  <div class="col-md-12">
-    <div class="input-group">
-      <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-horizontal', role: 'form'  }) do |f| %>
+<%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-horizontal', role: 'form'  }) do |f| %>
 
-        <% setup_search_form f %>
+  <% setup_search_form f %>
 
-        <h4><%= translate('ransack.advanced_search.sort.title') %></h4>
-        <div class="form-group">
-          <%= f.sort_fields do |s| %>
-            <%= render 'ransack_advanced_search/sort_fields', f: s %>
-          <% end %>
-          <%= button_to_add_fields translate('ransack.advanced_search.sort.add'), f, :sort %>
-        </div>
-
-        <h4><%= translate('ransack.advanced_search.condition_group.title') %></h4>
-        <div class="form-group">
-          <%= f.grouping_fields do |g| %>
-            <%= render 'ransack_advanced_search/grouping_fields', f: g %>
-          <% end %>
-          <%= button_to_add_fields translate('ransack.advanced_search.condition_group.add'),
-              f, :grouping %>
-        </div>
-        <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->
-        <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
-
-        <%= f.submit translate('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
-      <% end %>
-    </div>
+  <h4><%= translate('ransack.advanced_search.sort.title') %></h4>
+  <div class="form-group">
+    <%= f.sort_fields do |s| %>
+      <%= render 'ransack_advanced_search/sort_fields', f: s %>
+    <% end %>
+    <%= button_to_add_fields translate('ransack.advanced_search.sort.add'), f, :sort %>
   </div>
-</div>
+
+  <h4><%= translate('ransack.advanced_search.condition_group.title') %></h4>
+  <div class="form-group">
+    <%= f.grouping_fields do |g| %>
+      <%= render 'ransack_advanced_search/grouping_fields', f: g %>
+    <% end %>
+    <%= button_to_add_fields translate('ransack.advanced_search.condition_group.add'),
+        f, :grouping %>
+  </div>
+
+  <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->
+  <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
+
+  <%= f.submit translate('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
+<% end %>
 
 <% content_for(:ransack_advanced_search_setup) do %>
   <%= javascript_include_tag 'ransack_advanced_search/application' %>
