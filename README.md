@@ -8,7 +8,7 @@ The `ransack_advanced_search` gem provides Bootstrap based templates for the [ra
 
 ## Features
 * Full [ransack](https://github.com/activerecord-hackery/ransack) compatibility (you can still use the default [ransack](https://github.com/activerecord-hackery/ransack) features);
-* Ransack integrated Advanced Search mode with helpers and views - extracted from [ransack-demo](https://github.com/activerecord-hackery/ransack-demo) project;
+* Ransack integrated Advanced Search mode with helpers and views - extracted from [ransack-demo](https://github.com/activerecord-hackery/ransack_demo) project;
 * Saved Searches, scoped by contexts, to persist search params and use it in the future;
 * TODO: custom search value inputs based on data type.
 
@@ -34,7 +34,7 @@ Or install it yourself as:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/pivottable_rails/fork )
+1. Fork it ( https://github.com/davidbrusius/ransack_advanced_search/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
