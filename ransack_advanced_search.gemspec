@@ -7,17 +7,18 @@ require "ransack_advanced_search/version"
 Gem::Specification.new do |s|
   s.name        = "ransack_advanced_search"
   s.version     = RansackAdvancedSearch::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RansackAdvancedSearch."
-  s.description = "TODO: Description of RansackAdvancedSearch."
+  s.authors     = ["David Brusius"]
+  s.email       = ["brusiusdavid@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "Summary of RansackAdvancedSearch."
+  s.description = "Description of RansackAdvancedSearch."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.22.2"
-  # s.add_dependency "jquery-rails"
+  s.add_dependency 'rails', ['>= 3.2.6','< 5']
+  s.add_dependency 'ransack', '~> 1.7.0'
+  s.add_dependency 'coffee-rails'
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'pry'
 end
