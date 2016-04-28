@@ -5,6 +5,7 @@ en:
         submit_text: Search
         save_submit_text: Save and Search
         save_new_submit_text: Save as new and Search
+        clear_search_text: Reset
       sort:
         title: Sort
         label_title: Sort by

@@ -1,36 +1,28 @@
 <div class="ransack-advanced-search">
 
   <div class="row">
-    <div class="col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><%= t('ransack.saved_search.title') %></div>
-        <div class="list-group lista-buscas">
-          <% @saved_searches.each do |saved_search| %>
-            <%= link_to url_for(saved_search: saved_search.id), method: :post, class: 'list-group-item' do %>
-              <%= saved_search.description %>
-            <% end %>
-          <% end %>
-          <% if @saved_searches.empty? %>
-            <%= link_to '#', class: 'list-group-item' do %>
-              <em><%= t('ransack.saved_search.empty_list') %></em>
-            <% end %>
-          <% end %>
-        </div>
+    <% if RansackAdvancedSearch.enable_saved_searches %>
+      <div class="col-md-4">
+        <%= render 'ransack_advanced_search/saved_searches_list' %>
       </div>
-    </div>
-    <div class="col-md-8">
+      <div class="col-md-8">
+    <% else %>
+      <div class="col-md-12">
+    <% end %>
       <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-vertical', role: 'form'  }) do |f| %>
 
         <% setup_search_form f %>
 
-        <div class="form-group">
-          <%= label_tag 'Descrição da Busca (necessária para salvar a busca)' %>
-          <%= text_field_tag :description, @saved_search.try(:description), class: 'form-control input-sm' %>
-          <% if @saved_search %>
-            <%= hidden_field_tag :saved_search, @saved_search.id %>
-            <%= hidden_field_tag :use_search_params, true %>
-          <% end %>
-        </div>
+        <% if RansackAdvancedSearch.enable_saved_searches %>
+          <div class="form-group">
+            <%= label_tag 'Descrição da Busca (necessária para salvar a busca)' %>
+            <%= text_field_tag :description, @saved_search.try(:description), class: 'form-control input-sm' %>
+            <% if @saved_search %>
+              <%= hidden_field_tag :saved_search, @saved_search.id %>
+              <%= hidden_field_tag :use_search_params, true %>
+            <% end %>
+          </div>
+        <% end %>
 
         <h4><%= t('ransack.advanced_search.sort.title') %></h4>
         <div class="form-group">
@@ -53,8 +45,11 @@
         <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
         <div class="form-group">
           <%= f.submit t('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
-          <%= f.submit t('ransack.advanced_search.form.save_submit_text'), name: 'save_search', class: 'btn btn-primary' %>
-          <%= f.submit t('ransack.advanced_search.form.save_new_submit_text'), name: 'save_new_search', class: 'btn btn-primary' %>
+          <% if RansackAdvancedSearch.enable_saved_searches %>
+            <%= f.submit t('ransack.advanced_search.form.save_submit_text'), name: 'save_search', class: 'btn btn-primary' %>
+            <%= f.submit t('ransack.advanced_search.form.save_new_submit_text'), name: 'save_new_search', class: 'btn btn-primary' %>
+          <% end %>
+          <%= link_to t('ransack.advanced_search.form.clear_search_text'), redirect_path, class: 'btn btn-default' %>
         </div>
       <% end %>
     </div>

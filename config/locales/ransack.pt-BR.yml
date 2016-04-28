@@ -5,6 +5,7 @@ pt-BR:
         submit_text: Pesquisar
         save_submit_text: Salvar e Pesquisar
         save_new_submit_text: Salvar nova e Pesquisar
+        clear_search_text: Limpar
       sort:
         title: Ordenação
         add: Adicionar ordenação

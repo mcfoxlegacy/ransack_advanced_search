@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= t('ransack.saved_search.title') %></div>
+  <div class="list-group lista-buscas">
+    <% @saved_searches.each do |saved_search| %>
+      <%= link_to url_for(saved_search: saved_search.id), method: :post, class: 'list-group-item' do %>
+        <%= saved_search.description %>
+      <% end %>
+    <% end %>
+    <% if @saved_searches.empty? %>
+      <%= link_to '#', class: 'list-group-item' do %>
+        <em><%= t('ransack.saved_search.empty_list') %></em>
+      <% end %>
+    <% end %>
+  </div>
+</div>
