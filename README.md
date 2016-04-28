@@ -128,6 +128,16 @@ def index
   @results = @search.result()
 end
 ```
+IMPORTANT: if you use custom inflections settings, you can receive this error:
+```
+Table 'calendario_development.saved_searchs' doesn't exist
+```
+To avoid this you will have to include an irregular inflection:
+```ruby
+inlfect.irregular 'saved_search', 'saved_searches'
+```
+
+
 
 ## Contributing
 
