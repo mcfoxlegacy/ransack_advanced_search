@@ -54,6 +54,29 @@ def index
 end
 ```
 
+To use the Advanced Search with associtions you must provide a method in your model to tell what are the associations for that model
+```ruby
+  class YourModel < ActiveRecord::Base
+    # Associations to be included in the search attributes
+    def self.ransackable_associations(*)
+      %w( association1 association2 )
+    end
+  end
+```
+
+By default ransack will provide all your model fields to the avaliable field to search. You can restrict what fields will be included in the Advanced Search by defining it in your model, like this:
+```ruby
+  class YourModel < ActiveRecord::Base
+    # Fields that will be included in ransack advanced search
+    def self.ransackable_attributes(*)
+      %w( name description other_fields_names ) + _ransackers.keys
+    end
+  end
+```
+
+This rule applies to each model included in the search, even in the associations you can restrict fields to search.
+
+
 Now, we have to create a POST route to this action, in your `config/routes.rb` provide a POST route to this controller/action:
 
 ```ruby
