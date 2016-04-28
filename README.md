@@ -45,12 +45,12 @@ First, in your controller action that you will use for search, include the follo
 # GET /your_models.json
 # POST /your_models/advanced_search
 def index
-  # The ransack search must be in the @search instance variable, because the advanced search will use it to build the search form
+  # The ransack search must be in the @search instance variable, because the advanced search will use it to build the search form. You must provide associations you will use in the includes method.
   @search = YourModel.search(params[:q])
-  @results = @search.result()
+  @results = @search.result().includes(:association1, :association2)
   # or, if the above doesn't work
   @search = YourModel.ransack(params[:q])
-  @results = @search.result()
+  @results = @search.result(:association1, :association2)
 end
 ```
 
@@ -137,6 +137,9 @@ To avoid this you will have to include an irregular inflection:
 inflect.irregular 'saved_search', 'saved_searches'
 ```
 
+## i18n Support
+
+This gem was built using i18n translation supports, and has bult-in support for English (en) and Brazilian Portuguese (pt-BR). If you want to translate to your specific language, add a new locale file in your `config/locales` and translate the values to your language. You can get one of the locales of this project to make it easier to translate to your language.
 
 
 ## Contributing
