@@ -1,14 +1,14 @@
 <div class="ransack-advanced-search">
 
   <div class="row">
-    <% if RansackAdvancedSearch.enable_saved_searches %>
-      <div class="col-md-4">
-        <%= render 'ransack_advanced_search/saved_searches_list' %>
-      </div>
-      <div class="col-md-8">
-    <% else %>
-      <div class="col-md-12">
-    <% end %>
+  <% if RansackAdvancedSearch.enable_saved_searches %>
+    <div class="col-md-4">
+      <%= render 'ransack_advanced_search/saved_searches_list' %>
+    </div>
+    <div class="col-md-8">
+  <% else %>
+    <div class="col-md-12">
+  <% end %>
       <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-vertical', role: 'form'  }) do |f| %>
 
         <% setup_search_form f %>
