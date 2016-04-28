@@ -65,7 +65,7 @@ resources :your_models do
 end
 ```
 
-We have a ransack search well configured, from this step we will include the Advanced Search query mode in our views
+We have a ransack search well configured, from this step we will include the Advanced Search query mode in our views.
 
 In your application layout `app/views/layouts/application.erb`, include a yield in the head section to load ransack advanced search dependencies:
 ```html
@@ -83,7 +83,7 @@ In the view that you want the advanced search views, insert the following:
 ```ruby
   <%= render partial: 'ransack_advanced_search/advanced_search',
     locals: {
-       search_url: advanced_search_your_models_path, # POST route whe created above
+       search_url: advanced_search_your_models_path, # POST route we created above
        redirect_path: your_models_path # GET redirect path, to return after some actions
     }
   %>
