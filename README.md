@@ -134,7 +134,7 @@ Table 'calendario_development.saved_searchs' doesn't exist
 ```
 To avoid this you will have to include an irregular inflection:
 ```ruby
-inlfect.irregular 'saved_search', 'saved_searches'
+inflect.irregular 'saved_search', 'saved_searches'
 ```
 
 
