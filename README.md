@@ -122,7 +122,7 @@ Or, the following for quick_search:
     }
   %>
 ```
-
+IMPORTANT: If you are using saved searches and you want to change from quick search to advanced search views or vice versa, you must provide a new context for this saved searches or delete all saved search for that context before changing the view.
 
 All done! Enjoy the search!
 
