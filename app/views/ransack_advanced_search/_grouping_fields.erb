@@ -3,7 +3,7 @@
 
 
   <%= content_tag(:span, "#{t('ransack.advanced_search.condition_group.match')}
-    #{f.combinator_select} #{t('ransack.advanced_search.condition_group.match_condition')}
+    #{f.combinator_select({}, {class: 'form-control input-sm'})} #{t('ransack.advanced_search.condition_group.match_condition')}
     #{button_to_remove_fields}", nil, false) %>
 
   <%= f.condition_fields do |c| %>

@@ -1,5 +1,5 @@
 <%= content_tag :div, {
-  class: 'fields condition', 'data-object-name' => f.object_name
+  class: 'fields condition ransack-condition-field', 'data-object-name' => f.object_name
   } do %>
 
   <%= content_tag(:span, button_to_remove_fields,
@@ -16,6 +16,6 @@
   <% end %>
 
   <%= button_to_add_fields t('ransack.advanced_search.attribute_value.add'),
-      f, :value %>
+      f, :value, 'ransack-add-attribute' %>
 
 <% end %>

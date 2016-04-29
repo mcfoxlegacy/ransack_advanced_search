@@ -9,9 +9,9 @@
   <% else %>
     <div class="col-md-12">
   <% end %>
-      <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-vertical', role: 'form'  }) do |f| %>
+      <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-inline', role: 'form'  }) do |f| %>
 
-        <% setup_search_form f %>
+        <% setup_search_form f, @search %>
 
         <% if RansackAdvancedSearch.enable_saved_searches %>
           <div class="form-group">
@@ -43,6 +43,7 @@
 
         <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->
         <!-- <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %> -->
+        <div class="clearfix"></div>
         <div class="form-group">
           <%= f.submit t('ransack.advanced_search.form.submit_text'), class: 'btn btn-primary' %>
           <% if RansackAdvancedSearch.enable_saved_searches %>
