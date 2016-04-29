@@ -9,6 +9,8 @@ pt-BR:
         save_submit_text: Salvar e Pesquisar
         save_new_submit_text: Salvar nova e Pesquisar
         clear_search_text: Limpar
+        delete_saved_search: Excluir esta busca salva
+        delete_saved_search_confirm: Confirma a exclusão desta busca salva?
       sort:
         title: Ordenação
         add: Adicionar ordenação
@@ -27,6 +29,8 @@ pt-BR:
       save:
         success: Busca salva com sucesso.
         error: Erro ao salvar a busca. Você precisa informar a descrição da busca e pelo menos um filtro.
+      delete:
+        success: Busca excluída com sucesso.
     search: "pesquisar"
     predicate: "predicado"
     and: "e"

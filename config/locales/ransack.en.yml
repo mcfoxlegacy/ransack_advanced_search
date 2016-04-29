@@ -9,6 +9,8 @@ en:
         save_submit_text: Save and Search
         save_new_submit_text: Save as new and Search
         clear_search_text: Reset
+        delete_saved_search: Delete this saved search
+        delete_saved_search_confirm: Confirm deletion of this saved search?
       sort:
         title: Sort
         label_title: Sort by
@@ -28,6 +30,8 @@ en:
       save:
         success: Search saved successfully.
         error: Error while saving the search. You must enter a description of the search and at least one filter.
+      delete:
+        success: Search successfully destroyed.
     search: "search"
     predicate: "predicate"
     and: "and"
