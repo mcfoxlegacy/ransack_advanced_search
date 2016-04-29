@@ -1,5 +1,8 @@
 en:
   ransack:
+    quick_search:
+      condition_group:
+        title: Conditions
     advanced_search:
       form:
         submit_text: Search

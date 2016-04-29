@@ -1,5 +1,8 @@
 pt-BR:
   ransack:
+    quick_search:
+      condition_group:
+        title: Filtros
     advanced_search:
       form:
         submit_text: Pesquisar
