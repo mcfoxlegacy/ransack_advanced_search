@@ -47,7 +47,6 @@
         <% end %>
         <%= link_to t('ransack.advanced_search.form.clear_search_text'), redirect_path, class: 'btn btn-default' %>
         <% if RansackAdvancedSearch.enable_saved_searches %>
-          <%binding.pry%>
           <% if @saved_search.present? && @saved_search.persisted? %>
             <div class="pull-right">
               <%= link_to saved_search_path(id: @saved_search.id, redirect_to: redirect_path),
