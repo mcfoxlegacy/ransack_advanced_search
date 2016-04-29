@@ -101,7 +101,7 @@ In your application layout `app/views/layouts/application.erb`, include a yield 
   </body>
 </html>
 ```
-In the view that you want the advanced search views, insert the following:
+In the view that you want the advanced search views you can choose betwenn quick_search and advanced_search views, so insert the following for advanced_search:
 
 ```ruby
   <%= render partial: 'ransack_advanced_search/advanced_search',
@@ -111,6 +111,18 @@ In the view that you want the advanced search views, insert the following:
     }
   %>
 ```
+
+Or, the following for quick_search:
+
+```ruby
+  <%= render partial: 'ransack_advanced_search/quick_search',
+    locals: {
+       search_url: advanced_search_your_models_path, # POST route we created above
+       redirect_path: your_models_path # GET redirect path, to return after some actions
+    }
+  %>
+```
+
 
 All done! Enjoy the search!
 
