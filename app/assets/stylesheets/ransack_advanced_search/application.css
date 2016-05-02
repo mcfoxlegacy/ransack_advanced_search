@@ -24,3 +24,7 @@
 .ransack-advanced-search .ransack-action-buttons {
   margin-top: 10px;
 }
+
+.ransack-advanced-search .ransack-saved-search-delete {
+    margin: 7px;
+}
