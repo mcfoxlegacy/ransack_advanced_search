@@ -27,6 +27,22 @@
       return $(button).before(template.replace(id_regexp, new_id));
     };
 
+    Search.prototype.convertFieldType = function (fieldType) {
+      var fieldTypeToHtmlType = {
+        'default': 'text',
+        'integer': 'number',
+        'date' : 'date',
+        'datetime' : 'date'
+      };
+      return (fieldTypeToHtmlType[fieldType] || fieldTypeToHtmlType['default']);
+    };
+
+    Search.prototype.changeValueInputsType = function(element, fieldName, search) {
+      fieldType = search.fieldsType[fieldName];
+      conditionValueInputs = $(element).parents('.ransack-condition-field').find('.ransack-attribute-value');
+      conditionValueInputs.attr('type', search.convertFieldType(fieldType));
+    };
+
     return Search;
 
   })();
