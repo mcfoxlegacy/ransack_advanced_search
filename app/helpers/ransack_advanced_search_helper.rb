@@ -7,31 +7,21 @@ module RansackAdvancedSearchHelper
     content_for :ransack_setup, %Q{
       var search = new Search({grouping: "#{escape_javascript(fields)}"});
       search.fieldsType = #{get_fields_data_type(search_object).to_json.html_safe}
-      search.convertFieldType = function (fieldType) {
-        var fieldTypeToHtmlType = {
-          'default': 'text',
-          'integer': 'number',
-          'date' : 'date',
-          'datetime' : 'date'
-        }
-        return (fieldTypeToHtmlType[fieldType] || fieldTypeToHtmlType['default']);
-      }
-      search.changeValueInputsType = function(element, fieldName) {
-        fieldType = search.fieldsType[fieldName];
-        conditionValueInputs = $(element).parents('.ransack-condition-field').find('.ransack-attribute-value');
-        conditionValueInputs.attr('type', search.convertFieldType(fieldType));
-      }
+      $('select.ransack-attribute-select').each(function(e) {
+        fieldName = $(this).find('option:selected')[0].value;
+        search.changeValueInputsType(this, fieldName, search);
+      });
       $(document).on("click", "button.add_fields", function() {
         search.add_fields(this, $(this).data('fieldType'), $(this).data('content'));
         if($(this).hasClass('ransack-add-attribute')) {
           fieldName = $(this).parents('.ransack-condition-field').find('select.ransack-attribute-select').find('option:selected')[0].value;
-          search.changeValueInputsType(this, fieldName)
+          search.changeValueInputsType(this, fieldName, search);
         }
         return false;
       });
       $(document).on('change', 'select.ransack-attribute-select', function(e) {
         fieldName = $(this).find('option:selected')[0].value;
-        search.changeValueInputsType(this, fieldName)
+        search.changeValueInputsType(this, fieldName, search);
       });
       $(document).on("click", "i.remove_fields", function() {
         search.remove_fields(this);
