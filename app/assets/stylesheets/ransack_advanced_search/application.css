@@ -15,3 +15,12 @@
 .ransack-advanced-search i.remove_fields {
   cursor: pointer;
  }
+
+ .ransack-advanced-search .ransack-condition-field {
+     margin-bottom: 5px;
+     margin-top: 5px;
+ }
+
+.ransack-advanced-search .ransack-action-buttons {
+  margin-top: 10px;
+}
