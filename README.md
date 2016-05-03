@@ -10,7 +10,8 @@ The `ransack_advanced_search` gem provides Bootstrap based templates for the [ra
 * Full [ransack](https://github.com/activerecord-hackery/ransack) compatibility (you can still use the default [ransack](https://github.com/activerecord-hackery/ransack) features);
 * Ransack integrated Advanced Search mode with helpers and views - extracted from [ransack-demo](https://github.com/activerecord-hackery/ransack_demo) project;
 * Saved Searches, scoped by contexts, to persist search params and use it in the future;
-* TODO: custom search value inputs based on data type.
+* Custom search value inputs based on data type;
+* TODO: scope by current user or current account (abstract scope).
 
 ## Installation
 
