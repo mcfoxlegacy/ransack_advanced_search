@@ -12,7 +12,8 @@
  *= require_tree .
  */
 
-.ransack-advanced-search i.remove_fields {
+.ransack-advanced-search i.remove_fields,
+.ransack-advanced-search i.add_fields {
   cursor: pointer;
  }
 

@@ -29,7 +29,7 @@
           <%= f.sort_fields do |s| %>
             <%= render 'ransack_advanced_search/sort_fields', f: s %>
           <% end %>
-          <%= button_to_add_fields t('ransack.advanced_search.sort.add'), f, :sort %>
+          <%= button_to_add_fields '', f, :sort %>
         </div>
 
         <h4><%= t('ransack.advanced_search.condition_group.title') %></h4>
@@ -37,8 +37,7 @@
           <%= f.grouping_fields do |g| %>
             <%= render 'ransack_advanced_search/grouping_fields', f: g %>
           <% end %>
-          <%= button_to_add_fields t('ransack.advanced_search.condition_group.add'),
-              f, :grouping %>
+          <%= button_to_add_fields '', f, :grouping %>
         </div>
 
         <!-- <%= label_tag :distinct, 'Return distinct records?' %> -->

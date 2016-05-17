@@ -11,7 +11,7 @@ module RansackAdvancedSearchHelper
         fieldName = $(this).find('option:selected')[0].value;
         search.changeValueInputsType(this, fieldName, search);
       });
-      $(document).on("click", "button.add_fields", function() {
+      $(document).on("click", "i.add_fields", function() {
         search.add_fields(this, $(this).data('fieldType'), $(this).data('content'));
         if($(this).hasClass('ransack-add-attribute')) {
           fieldName = $(this).parents('.ransack-condition-field').find('select.ransack-attribute-select').find('option:selected')[0].value;
@@ -47,7 +47,7 @@ module RansackAdvancedSearchHelper
   end
 
   def button_to_remove_fields
-    content_tag :i, nil, class: 'remove_fields glyphicon glyphicon-remove text-danger'
+    content_tag :i, nil, class: 'remove_fields glyphicon glyphicon-minus-sign text-danger'
   end
 
   def button_to_add_fields(name, f, type, custom_class='')
@@ -55,7 +55,7 @@ module RansackAdvancedSearchHelper
     fields = f.send("#{type}_fields", new_object, child_index: "new_#{type}") do |builder|
       render('ransack_advanced_search/' + type.to_s + "_fields", f: builder)
     end
-    content_tag :button, name, :class => custom_class + ' add_fields btn btn-default btn-sm', :type => 'button', 'data-field-type' => type, 'data-content' => "#{fields}"
+    content_tag :i, name, :class => custom_class + ' add_fields glyphicon glyphicon-plus-sign text-success', :type => 'button', 'data-field-type' => type, 'data-content' => "#{fields}"
   end
 
   def button_to_nest_fields(name, type)

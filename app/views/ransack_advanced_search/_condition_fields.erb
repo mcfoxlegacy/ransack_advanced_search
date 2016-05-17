@@ -2,8 +2,7 @@
   class: 'fields condition ransack-condition-field', 'data-object-name' => f.object_name
   } do %>
 
-  <%= content_tag(:span, button_to_remove_fields,
-    nil, false) %>
+  <%= content_tag(:span, button_to_remove_fields, {}, false) %>
 
   <%= f.attribute_fields do |a| %>
     <%= render 'ransack_advanced_search/attribute_fields', f: a %>
@@ -15,7 +14,6 @@
     <%= render 'ransack_advanced_search/value_fields', f: v %>
   <% end %>
 
-  <%= button_to_add_fields t('ransack.advanced_search.attribute_value.add'),
-      f, :value, 'ransack-add-attribute' %>
+  <%= button_to_add_fields '', f, :value, 'ransack-add-attribute' %>
 
 <% end %>

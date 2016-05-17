@@ -10,7 +10,6 @@
     <div class="col-md-12">
   <% end %>
       <%= search_form_for(@search, url: search_url, html: { method: :post, class: 'form-inline', role: 'form'  }) do |f| %>
-
         <% setup_search_form f, @search %>
 
         <% if RansackAdvancedSearch.enable_saved_searches %>
@@ -34,8 +33,7 @@
               <%= render partial: 'ransack_advanced_search/grouping_fields',
                          locals: { f: f, remove_able: true } %>
             <% end %>
-            <%= button_to_add_fields t('ransack.advanced_search.condition_group.add'),
-                f, :grouping %>
+            <%= button_to_add_fields '', f, :grouping %>
           <% end %>
         </div>
 
