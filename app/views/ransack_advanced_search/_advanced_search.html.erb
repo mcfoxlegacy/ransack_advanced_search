@@ -50,18 +50,6 @@
             <%= f.submit t('ransack.advanced_search.form.save_new_submit_text'), name: 'save_new_search', class: 'btn btn-primary' %>
           <% end %>
           <%= link_to t('ransack.advanced_search.form.clear_search_text'), redirect_path, class: 'btn btn-default' %>
-          <% if RansackAdvancedSearch.enable_saved_searches %>
-            <% if @saved_search.present? && @saved_search.persisted? %>
-              <div class="pull-right ransack-saved-search-delete">
-                <%= link_to saved_search_path(id: @saved_search.id, redirect_to: redirect_path),
-                    { method: :delete, title: t('ransack.advanced_search.form.delete_saved_search'),
-                      data: { confirm: t('ransack.advanced_search.form.delete_saved_search_confirm'),
-                      toggle: 'tooltip', placement: 'bottom' } } do %>
-                  <icon class="glyphicon glyphicon-trash text-danger"></i>
-                <% end %>
-              </div>
-            <% end %>
-          <% end %>
         </div>
       <% end %>
     </div>

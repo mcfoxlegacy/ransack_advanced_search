@@ -1,15 +1,25 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= t('ransack.saved_search.title') %></div>
-  <div class="list-group lista-buscas">
+  <ul class="list-group lista-buscas">
     <% @saved_searches.each do |saved_search| %>
-      <%= link_to url_for(saved_search: saved_search.id), method: :post, class: 'list-group-item' do %>
-        <%= saved_search.description %>
-      <% end %>
+      <li class="list-group-item">
+        <%= link_to url_for(saved_search: saved_search.id), method: :post do %>
+          <%= saved_search.description %>
+        <% end %>
+        <div class="pull-right ransack-saved-search-delete">
+          <%= link_to saved_search_path(id: saved_search.id, redirect_to: redirect_path),
+              { method: :delete, title: t('ransack.advanced_search.form.delete_saved_search'),
+                data: { confirm: t('ransack.advanced_search.form.delete_saved_search_confirm'),
+                toggle: 'tooltip', placement: 'bottom' } } do %>
+            <icon class="glyphicon glyphicon-trash text-danger"></i>
+          <% end %>
+        </div>
+      </li>
     <% end %>
     <% if @saved_searches.empty? %>
-      <%= link_to '#', class: 'list-group-item' do %>
+      <li class="list-group-item">
         <em><%= t('ransack.saved_search.empty_list') %></em>
-      <% end %>
+      </li>
     <% end %>
-  </div>
+  </ul>
 </div>
